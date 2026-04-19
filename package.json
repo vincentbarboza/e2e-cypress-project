@@ -1,8 +1,7 @@
 {
   "name": "e2e-cypress-project",
   "version": "1.0.0",
-  "description": "��#\u0000#\u0000 \u0000e\u00002\u0000e\u0000-\u0000c\u0000y\u0000p\u0000r\u0000e\u0000s\u0000s\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "Cypress E2E + CI/CD + Docker + ESLint + ReportPortal",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/vincentbarboza/e2e-cypress-project.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Vincent Barboza",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
@@ -19,6 +17,7 @@
   },
   "homepage": "https://github.com/vincentbarboza/e2e-cypress-project#readme",
   "devDependencies": {
-    "cypress": "^15.14.0"
+    "cypress": "^15.14.0",
+    "typescript": "^6.0.3"
   }
 }

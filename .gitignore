@@ -8,3 +8,6 @@ cypress/downloads/
 
 # Cypress cache
 .cypress/
+
+# VS Code
+.vscode/
