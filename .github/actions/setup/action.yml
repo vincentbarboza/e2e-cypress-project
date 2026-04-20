@@ -1,5 +1,5 @@
 name: Setup
-description: Setup node + npm ci
+description: Setup Node + npm ci
 runs:
   using: "composite"
   steps:
