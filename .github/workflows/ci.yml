@@ -30,9 +30,11 @@ jobs:
         run: npm ci
 
       - name: Lint
+        id: lint
         run: npm run eslint-cypress
 
       - name: Typecheck
+        id: typecheck
         run: npm run typecheck
 
       - name: Cypress run
@@ -41,3 +43,7 @@ jobs:
           command: npm run cypress:run
         env:
           CI: true
+
+      - name: Fail workflow if lint/typecheck failed
+        if: ${{ steps.lint.outcome == 'failure' || steps.typecheck.outcome == 'failure' }}
+        run: exit 1          
