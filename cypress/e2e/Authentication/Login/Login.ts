@@ -20,5 +20,8 @@ describe('Login', () => {
 
         // Wait for the response
         cy.wait('@homePage').its('response.statusCode').should('eq', 200);
+
+        // Check the right URL
+        cy.url().should('contain', 'inventory')
     });
 });
