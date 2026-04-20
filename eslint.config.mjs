@@ -52,7 +52,6 @@ export default [
       // Style (soft)
       quotes: ['warn', 'single', { avoidEscape: true }],
       'comma-dangle': ['warn', 'always-multiline'],
-      'object-curly-spacing': ['warn', 'always'],
       'space-infix-ops': 'warn',
 
       // TypeScript

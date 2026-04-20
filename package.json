@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "description": "Cypress E2E + CI/CD + Docker + ESLint + ReportPortal",
   "scripts": {
-    "cypress": "npx cypress open --e2e -b chrome",
+    "cypress:open": "npx cypress open --e2e -b chrome",
+    "cypress:run": "npx cypress run --e2e -b chrome",
     "eslint-cypress": "eslint .",
-    "eslint-cypress:fix": "eslint . --fix"
+    "eslint-cypress:fix": "eslint . --fix",
+    "typecheck": "tsc -p cypress/tsconfig.json --noEmit"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vincentbarboza/e2e-cypress-project.git"
   },
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10"
+  },
   "author": "Vincent Barboza",
-  "license": "ISC",
-  "type": "commonjs",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vincentbarboza/e2e-cypress-project/issues"
   },

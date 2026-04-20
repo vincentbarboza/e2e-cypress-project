@@ -1,4 +1,4 @@
-import loginFixture from '../../../fixtures/Authentication/Login/LoginFixture';
+import loginFixture from '../../../fixtures/Authentication/Login/LoginData';
 
 const selectors = {
     userName: '[data-test="username"]',
@@ -6,8 +6,8 @@ const selectors = {
     submitButton: '[data-test="login-button"]',
 };
 
-describe('Test file', () => {
-    it('Test case', () => {
+describe('Login', () => {
+    it('Check the login flow', () => {
         cy.intercept('GET', '/').as('homePage');
 
         // Go to the home page
