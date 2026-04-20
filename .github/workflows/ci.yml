@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
@@ -12,38 +12,33 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality-and-tests:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
+      - uses: ./.github/actions/setup
       - name: Lint
-        id: lint
         run: npm run eslint-cypress
 
+  typecheck:
+    name: Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: ./.github/actions/setup
       - name: Typecheck
-        id: typecheck
         run: npm run typecheck
 
+  cypress:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: ./.github/actions/setup
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npm run cypress:run
+          command: npx cypress run
         env:
           CI: true
-
-      - name: Fail workflow if lint/typecheck failed
-        if: ${{ steps.lint.outcome == 'failure' || steps.typecheck.outcome == 'failure' }}
-        run: exit 1          
