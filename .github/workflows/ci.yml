@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup/action.yml
       - name: Lint
         run: npm run eslint-cypress
@@ -26,6 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup/action.yml
       - name: Typecheck
         run: npm run typecheck
@@ -35,6 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup/action.yml
       - name: Cypress run
         uses: cypress-io/github-action@v6
