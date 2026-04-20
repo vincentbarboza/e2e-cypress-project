@@ -34,22 +34,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          command: npx run cypress:run
+          command: npm run cypress:run
         env:
           CI: true
-
-      - name: Upload Cypress screenshots (on failure)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-
-      - name: Upload Cypress videos (on failure)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore
