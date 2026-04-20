@@ -5,4 +5,4 @@ const loginFixture: LoginFixture = {
     password: 'secret_sauce',
 };
 
-export default loginFixture
+export default loginFixture;
